@@ -1,14 +1,19 @@
 .printingQuote {
-    margin: 5vw 15vw;
+  margin-top: 20px;
+  margin-left: 15vw;
+  padding-bottom: 7.76vw;
+} 
+  .header
+  {
+    color:white;
   }
-  
   .form {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: white;
     border: 2px grey solid;
-    width: 20vw;
+    width: 60vw;
     padding: 20px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   }
@@ -16,10 +21,13 @@
   .label {
     margin-bottom: 5px;
   }
-  
-  /* Add margin to input elements for vertical separation */
+    
+  .quantity
+  {width:5vw;}
+
   .inputField {
     margin-bottom: 10px;
+    width:50vw;
   }
   
   .options {
@@ -43,6 +51,7 @@
 
   .textBox {
     margin-left: 5px;
+    width:40vw;
   }
   .inputGroup {
     display: flex;
@@ -57,4 +66,19 @@
   .inputField {
     padding: 5px;
   }
-    
+  
+  .form button
+  {
+    background-color: white;
+    border: 2px solid black;
+    padding: 2vw;
+    border-radius:15px;
+    width:20vw;
+    margin-left:30%;
+  }
+
+  .form button:hover{
+    cursor: pointer;
+    background-color: grey;
+    color:white;
+  }

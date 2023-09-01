@@ -10,8 +10,11 @@ function Portfolio()
                 <img src="./images/banner.jpg" alt="Banner Image for Grey Graphics Printing"/>
             </div>
             <div className="btn">
-                <Link to="/quote">
-                    <button>Get A Quote Today!</button>
+                <Link to="/design"> 
+                    <button>Get A Logo Design Quote</button>
+                </Link>
+                <Link to="/printing">
+                    <button>Get A Screen Printing Quote</button>
                 </Link>
             </div>
             <div className="cards">

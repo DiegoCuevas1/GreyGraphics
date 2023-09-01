@@ -3,7 +3,6 @@ import './PrintingQuote.css';
 
 function PrintingQuote()
 {
-    const [isOtherSelected, setIsOtherSelected] = useState(false);
 
     const [formData, setFormData] = useState({
         fullName: "",
@@ -25,15 +24,12 @@ function PrintingQuote()
         data.append('phoneNumber', formData.phoneNumber);
       
         formData.selectedOptions.forEach(option => {
-          if (option !== "Other") {
             data.append('selectedOptions', option);
-          } else if (isOtherSelected) {
-            data.append('selectedOptions', `Other: ${formData.otherOptionText}`);
-          }
         });
       
         console.log(formData);
         // ... Additional code for handling form data
+        
       };
       
 
@@ -70,9 +66,19 @@ function PrintingQuote()
 
       
       const handleOtherCheckboxChange = (e) => {
-        const value = e.target.value;
-        console.log(value); // Log the value of the "Other" checkbox
-        // Rest of your logic for handling the "Other" checkbox
+        const option = "Other";
+        
+        if (e.target.checked) {
+          setFormData((prevData) => ({
+            ...prevData,
+            selectedOptions: [...prevData.selectedOptions, option],
+          }));
+        } else {
+          setFormData((prevData) => ({
+            ...prevData,
+            selectedOptions: prevData.selectedOptions.filter((item) => item !== option),
+          }));
+        }
       };
       
       
@@ -130,7 +136,18 @@ function PrintingQuote()
                             className="inputField"
                           />
                         </div>
-                        
+                        <div className="inputGroup">
+                          <label className="label">Quantity:</label>
+                          <input
+                            type="number"
+                            name="quantity"
+                            placeholder="0"
+                            value={formData.quantity}
+                            onChange={handleInputChange}
+                            className="quantity"
+                          />
+                          
+                        </div>
                         <div className="options">
                           <div className="checkboxGroup">
                             <label>Apparel Type(s):</label>
