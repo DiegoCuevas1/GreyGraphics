@@ -1,0 +1,13 @@
+.services
+{
+    background-color: white;
+    height:44vw;
+}
+.services .header{
+    color:white;
+    margin-left: 2vw;
+}
+
+.services{
+    display:flex;
+}

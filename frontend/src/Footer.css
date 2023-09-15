@@ -1,0 +1,49 @@
+.footer
+{
+    background-color: white;
+    height:8vw;
+    display:flex;
+    padding:20px;
+    ;
+}
+
+.footer .categories
+{
+    display:flex;
+    margin-left:50vw;
+}
+
+.categories .serviceCategory
+{
+    margin-right:2vw;
+}
+
+ul
+{
+    list-style: none;
+    padding:0;
+    margin-top:10px;
+}
+
+li{
+    margin:5px 0;
+    text-decoration: none;
+    color: #515151;
+}
+
+h2,h1{
+    margin:0;
+    color:#2c2c2c
+}
+
+.footer h1{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5vw;
+}
+.footer a
+{
+    text-decoration: none;
+    color:#515151;
+}

@@ -1,35 +1,51 @@
 import React, {useState} from "react";
+import axios from "axios";
 import './PrintingQuote.css';
 
 function PrintingQuote()
 {
-
+    const [fileUpload, setFileUpload] = useState(null);
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
         quantity: "",
         phoneNumber: "",
-        file: null,
         selectedOptions:[],
         otherOptionText:"",
       });
       const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        const data = new FormData();
-        data.append('file', formData.file);
-        data.append('fullName', formData.fullName);
-        data.append('email', formData.email);
-        data.append('quantity', formData.quantity);
-        data.append('phoneNumber', formData.phoneNumber);
-      
-        formData.selectedOptions.forEach(option => {
-            data.append('selectedOptions', option);
-        });
+        if (!formData.fullName || !formData.email || !formData.phoneNumber) {
+          console.error("Please fill in all required fields.");
+          return;
+        }
       
         console.log(formData);
-        // ... Additional code for handling form data
-        
+
+        const formDataUpload = new FormData();
+        formDataUpload.append('design',fileUpload);
+        formDataUpload.append('email',formData.email);
+        formDataUpload.append('name',formData.fullName);
+        formDataUpload.append('phoneNumber',formData.phoneNumber);
+        formDataUpload.append('selectedOptions',formData.selectedOptions);
+        formDataUpload.append('otherOptionText',formData.otherOptionText);
+        formDataUpload.append('quantity',formData.quantity);
+        formDataUpload.forEach((member)=>
+        {
+          console.log(member);
+        });
+
+        try {
+          const response = await axios.post('http://localhost:5000/send-email', formDataUpload,{
+            headers:
+            {
+              'Content-Type':'multipart/form-data',
+            },
+          });
+          console.log(response.data);  
+        } catch (error) {
+          console.error(error);
+        }
       };
       
 
@@ -42,10 +58,7 @@ function PrintingQuote()
       };
 
     const handleFileChange = (e) => {
-        setFormData((prevData) => ({
-          ...prevData,
-          file: e.target.files[0],
-        }));
+        setFileUpload(e.target.files[0]);
       };
     
       
@@ -110,6 +123,7 @@ function PrintingQuote()
                             value={formData.fullName}
                             onChange={handleInputChange}
                             className="inputField"
+                            required
                           />
                         </div>
                         
@@ -122,18 +136,30 @@ function PrintingQuote()
                             value={formData.email}
                             onChange={handleInputChange}
                             className="inputField"
+                            required
                           />
                         </div>
                         
                         <div className="inputGroup">
                           <label className="label">Phone Number:</label>
                           <input
-                            type="text"
+                            type="tel"
                             name="phoneNumber"
                             placeholder="Phone Number"
                             value={formData.phoneNumber}
                             onChange={handleInputChange}
                             className="inputField"
+                            required
+                          />
+                        </div>
+                        <div className="inputGroup">
+                          <label>Upload Design:</label>
+                          <input 
+                            type="file"
+                            name="design"
+                            className="design" 
+                            required     
+                            onChange={handleFileChange}                      
                           />
                         </div>
                         <div className="inputGroup">
@@ -217,7 +243,7 @@ function PrintingQuote()
                                 </div>
                       </div>
                       <div className="otherCheckbox">
-                          <label>
+                          <label className="label">
                               <input 
                               type="checkbox"
                               name="selectedOptions"
@@ -226,7 +252,8 @@ function PrintingQuote()
                               onChange={handleOtherCheckboxChange}
                               />
                               Other:
-                          </label>
+                            </label>
+                             
                           <input
                               type="text"
                               name="otherOptionText"

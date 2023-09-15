@@ -1,84 +1,85 @@
+/* Responsive styles for the PrintingQuote component */
 .printingQuote {
-  margin-top: 20px;
-  margin-left: 15vw;
-  padding-bottom: 7.76vw;
-} 
-  .header
-  {
-    color:white;
-  }
-  .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    border: 2px grey solid;
-    width: 60vw;
-    padding: 20px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  }
-  
-  .label {
-    margin-bottom: 5px;
-  }
-    
-  .quantity
-  {width:5vw;}
+  display:block;
+  margin-top: 0%;
+  padding: 0; /* Responsive padding */
+  text-align: center; /* Center align for small screens */
+}
 
-  .inputField {
-    margin-bottom: 10px;
-    width:50vw;
-  }
-  
-  .options {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .checkboxGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-    
-  .gridContainer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
-  }
-  
+.printingQuote .header {
+  color: white;
+}
+.printingQuote 
+.label {
+  margin-bottom: 5px;
+}
 
-  .textBox {
-    margin-left: 5px;
-    width:40vw;
-  }
-  .inputGroup {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px; /* Adjust as needed for spacing */
-  }
-  
-  .label {
-    margin-bottom: 5px;
-  }
-  
-  .inputField {
-    padding: 5px;
-  }
-  
-  .form button
-  {
-    background-color: white;
-    border: 2px solid black;
-    padding: 2vw;
-    border-radius:15px;
-    width:20vw;
-    margin-left:30%;
-  }
+.quantity {
+  width: 100%; /* Full width on small screens */
+}
 
-  .form button:hover{
-    cursor: pointer;
-    background-color: grey;
-    color:white;
-  }
+.printingQuote .inputField {
+  margin-bottom: 1vw;
+  width: 100%; /* Full width on small screens */
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+}
+
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.printingQuote .form
+{
+  display:flex;
+  width:40vw;
+  border-radius: 25px;
+}
+.printingQuote form{
+  width:100%;
+}
+.printingQuote .form .label{
+  display:flex;
+  justify-content: left;
+}
+.printingQuote .gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+.printingQuote .textBox {
+  margin-left: 5px;
+  width: 100%; /* Full width on small screens */
+}
+
+.printingQuote .inputGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.printingQuote .design
+{
+  margin-top: 10px;
+}
+
+.printingQuote .form button {
+  background-color: white;
+  border: 2px solid black;
+  padding: 2vw;
+  border-radius: 15px;
+  width: 60%; /* Responsive width */
+  margin: 0 auto; /* Center the button */
+}
+
+.printingQuote .form button:hover {
+  cursor: pointer;
+  background-color: grey;
+  color: white;
+}

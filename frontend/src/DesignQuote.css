@@ -1,0 +1,30 @@
+.designQuote
+{
+    display:block;
+    margin:0;
+    padding:0;
+    text-align: center;
+}
+.designQuote .header
+{
+    color:white;
+}
+.designQuote .form{
+    display:flex;
+    width:50vw;
+    border-radius: 25px;
+}
+.designQuote form{
+    width:100%;
+}
+.designQuote form .label
+{
+    display: flex;
+    justify-content: left;
+}
+.designQuote .description
+{
+    display: flex;
+    width: 100%;
+    height:10vw;
+}

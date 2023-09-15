@@ -1,11 +1,13 @@
 /* Styles for the Portfolio component */
 .portfolio {
-    padding: 2vw;
-    background-color: black;
+    width: 98.9vw;
+    padding:20px 0vw;
+    background-color: white;
 }
 
 .banner img {
-    height: 50%;
+    width: 75%; /* Adjust for responsiveness */
+    margin:1vw 12vw;
 }
 
 .btn {
@@ -14,14 +16,14 @@
 }
 
 .btn button {
-    margin:1vw; 
+    margin: 1vw;
     padding: 10px 20px;
     background-color: #333;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 20px;
-    font-size:20px;
+    font-size: 20px;
 }
 
 .btn button:hover {
@@ -30,25 +32,26 @@
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
     gap: 20px;
     margin-top: 20px;
+    margin:20px 15px;
+    padding:0;
 }
 
 .card {
     position: relative;
-    overflow: hidden; /* Clip any overflowing content */
 }
 
 .card img {
     width: 100%;
     height: auto;
-    border: 1px solid #ccc;
-    transition: filter 0.3s ease-in-out; /* Smooth transition for grayscale effect */
+    border: 2px solid #ccc;
+    transition: filter 0.3s ease-in-out;
 }
 
 .card:hover img {
-    filter: grayscale(100%); /* Apply grayscale effect on hover */
+    filter: grayscale(100%);
 }
 
 .overlay {
@@ -74,4 +77,81 @@
     font-size: 18px;
     text-align: center;
     padding: 20px;
+}
+
+/* Responsive styles for the PrintingQuote component */
+.printingQuote {
+    margin-top: 20px;
+    padding: 7.76vw 0; /* Responsive padding */
+    text-align: center; /* Center align for small screens */
+}
+
+.portfolio .header {
+    color: white;
+}
+
+.form {
+    background-color: white;
+    border: 2px grey solid;
+    width: 80%; /* Responsive width */
+    padding: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    margin: 0 auto; /* Center the form */
+}
+
+.label {
+    margin-bottom: 5px;
+}
+
+.quantity {
+    width: 100%; /* Full width on small screens */
+}
+
+.inputField {
+    margin-bottom: 10px;
+    width: 100%; /* Full width on small screens */
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkboxGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+.textBox {
+    margin-left: 5px;
+    width: 100%; /* Full width on small screens */
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form button {
+    background-color: white;
+    border: 2px solid black;
+    padding: 2vw;
+    border-radius: 15px;
+    width: 60%; /* Responsive width */
+    margin: 0 auto; /* Center the button */
+}
+
+.form button:hover {
+    cursor: pointer;
+    background-color: grey;
+    color: white;
 }

@@ -1,9 +1,9 @@
-.App
-{
-  background-color: black;
+
+.App {
+  background-color: white;
+  height: auto; /* Remove fixed height for responsiveness */
+  margin: 0;
+  display:block;
+  overflow-y: hidden  ;
 }
-.spacer
-{
-  height:10px;
-  background-color: black;
-}
+
