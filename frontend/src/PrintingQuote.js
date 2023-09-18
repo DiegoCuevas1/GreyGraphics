@@ -36,7 +36,7 @@ function PrintingQuote()
         });
 
         try {
-          const response = await axios.post('http://localhost:5000/send-email', formDataUpload,{
+          const response = await axios.post('http://18.222.10.196:5000/send-email', formDataUpload,{
             headers:
             {
               'Content-Type':'multipart/form-data',

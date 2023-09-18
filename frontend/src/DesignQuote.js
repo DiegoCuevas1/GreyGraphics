@@ -35,7 +35,7 @@ function DesignQuote()
         
         try
         {
-          const response = await axios.post('http://localhost:5000/send-design',formDataUpload,{
+          const response = await axios.post('http://18.222.10.196:5000/send-design',formDataUpload,{
             headers:
             {
               'Content-Type':'application/json  ',

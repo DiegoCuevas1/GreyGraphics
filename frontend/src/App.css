@@ -4,6 +4,6 @@
   height: auto; /* Remove fixed height for responsiveness */
   margin: 0;
   display:block;
-  overflow-y: hidden  ;
+  overflow-x: hidden  ;
 }
 

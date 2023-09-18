@@ -9,6 +9,9 @@
 .printingQuote .header {
   color: white;
 }
+.printingQuote h1{
+  font-size:3em;
+}
 .printingQuote 
 .label {
   margin-bottom: 5px;
