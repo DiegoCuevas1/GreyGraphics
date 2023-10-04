@@ -4,7 +4,6 @@ import './PrintingQuote.css';
 
 function PrintingQuote()
 {
-    const [fileUpload, setFileUpload] = useState(null);
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
@@ -19,33 +18,28 @@ function PrintingQuote()
           console.error("Please fill in all required fields.");
           return;
         }
-      
-        console.log(formData);
-
-        const formDataUpload = new FormData();
-        formDataUpload.append('design',fileUpload);
-        formDataUpload.append('email',formData.email);
-        formDataUpload.append('name',formData.fullName);
-        formDataUpload.append('phoneNumber',formData.phoneNumber);
-        formDataUpload.append('selectedOptions',formData.selectedOptions);
-        formDataUpload.append('otherOptionText',formData.otherOptionText);
-        formDataUpload.append('quantity',formData.quantity);
-        formDataUpload.forEach((member)=>
-        {
-          console.log(member);
+        const formattedOptions = formData.selectedOptions.map((option) => {
+          if (option === "Other") {
+            return `Other: ${formData.otherOptionText}`;
+          }
+          return option;
         });
+        const optionsList = formattedOptions.join(', ')
 
-        try {
-          const response = await axios.post('http://18.222.10.196:5000/send-email', formDataUpload,{
-            headers:
-            {
-              'Content-Type':'multipart/form-data',
-            },
-          });
-          console.log(response.data);  
-        } catch (error) {
-          console.error(error);
-        }
+        const subject = 'Screen Printing Quote Request';
+        const emailBody = `
+          Full Name: ${formData.fullName}
+          Email: ${formData.email}
+          Phone Number: ${formData.phoneNumber}
+          Quantity: ${formData.quantity}
+          Apparel Types: ${optionsList}
+          `;
+        const mailtoLink = `mailto:greygraphicsprinting@gmail.com?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(emailBody)}`;
+        
+          window.location.href = mailtoLink;
+        
       };
       
 
@@ -57,10 +51,7 @@ function PrintingQuote()
         }));
       };
 
-    const handleFileChange = (e) => {
-        setFileUpload(e.target.files[0]);
-      };
-    
+   
       
       const handleCheckboxChange = (e) => {
         const option = e.target.value;
@@ -106,7 +97,7 @@ function PrintingQuote()
         console.log(formData.otherOptionText)
     };
 
-
+    
     return(
         <div className="printingQuote">
             <div className="header">
@@ -150,16 +141,6 @@ function PrintingQuote()
                             onChange={handleInputChange}
                             className="inputField"
                             required
-                          />
-                        </div>
-                        <div className="inputGroup">
-                          <label>Upload Design:</label>
-                          <input 
-                            type="file"
-                            name="design"
-                            className="design" 
-                            required     
-                            onChange={handleFileChange}                      
                           />
                         </div>
                         <div className="inputGroup">

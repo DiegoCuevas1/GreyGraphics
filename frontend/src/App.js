@@ -16,8 +16,8 @@ function App() {
         <Routes>
           <Route path="/" Component={Portfolio} />
           <Route path="/portfolio" Component={Portfolio} />
-          <Route path="/printing" Component={PrintingQuote} />
-          <Route path="/design" Component={DesignQuote} />
+          <Route path="/quote/printing" Component={PrintingQuote} />
+          <Route path="/quote/design" Component={DesignQuote} />
           <Route path="/services" Component={Services} />
         </Routes>
         <Footer />

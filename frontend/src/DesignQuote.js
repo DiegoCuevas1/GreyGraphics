@@ -26,27 +26,15 @@ function DesignQuote()
         {
             console.error("Please Fill in All Required Fields");
         }
-
-        const formDataUpload = new FormData();
-        formDataUpload.append('name',formData.fullName);
-        formDataUpload.append('email',formData.email);
-        formDataUpload.append('phoneNumber',formData.phoneNumber);
-        formDataUpload.append('description',formData.description);
+        const subject = 'Logo Design Quote Request';
+        const body = `Full Name: ${formData.fullName}\nEmail: ${formData.email}\nPhone Number: ${formData.phoneNumber}\nDescription: ${formData.description}`;
+        const mailtoLink = `mailto:greygraphicsprinting@gmail.com?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(body)}`;
         
-        try
-        {
-          const response = await axios.post('http://18.222.10.196:5000/send-design',formDataUpload,{
-            headers:
-            {
-              'Content-Type':'application/json  ',
-            },
-          });
-          console.log(response.data);
-        }
-        catch(error)
-        {
-          console.error(error)
-        }
+          window.location.href = mailtoLink;
+      
+        
     }
 
     return(
