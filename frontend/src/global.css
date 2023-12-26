@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body{
+    background-color: white;
+    margin: 0; 
+    padding: 0;
+    font-family: 'Familjen Grotesk', sans-serif;
+}
